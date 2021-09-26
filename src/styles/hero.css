@@ -1,0 +1,7 @@
+.hero{
+    height: Calc( 100vh - 56px);
+    background-size: cover;
+    background-position: center;
+}
+
+
