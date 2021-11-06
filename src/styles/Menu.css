@@ -1,0 +1,8 @@
+.food-card-img{
+    height: 300px !important;
+    overflow: hidden !important;
+}
+
+.add-btn{
+    cursor: pointer;
+}

@@ -1,57 +1,75 @@
-import React, { useState } from 'react';
+import React, {useState, useContext} from 'react';
 import { useHistory } from 'react-router';
+import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
-const Login = ({handleAuthKey}) => {
-    const [userEmail, setUserEmail] = useState("");
-    const [userPassword, setUserPassword] = useState("");
+import { FoodContext } from '../App';
+
+const Login = () => {
     const history = useHistory();
-    const loginUser = async(event) => {
+    const {setToken, setUser} = useContext(FoodContext);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = async(event) => {
         try {
             event.preventDefault();
-            const user = {
-                email: userEmail,
-                password: userPassword
+            const userLoginData = {email: email, password: password};
+            const auth = await axios.post('/auth/login', userLoginData);
+
+            if(auth.data){
+                setToken(auth.data.token);
+                const userData = jwt.verify(auth.data.token, process.env.REACT_APP_JWT_KEY);
+                setUser(userData);
+                return history.push('/');
             }
-            const res = await axios.post('/auth/login', user);
-            history.push('/');
-            const authKey = {
-                token: res.data.token,
-                role: res.data.role
-            }
-            handleAuthKey(authKey);
         } 
         catch (error) {
-            console.log("login failed", error);
+            console.log('auth failed', error);
         }
-        
     }
-    
+
     return (
-        <div className="form-box px-2" >
-            <form onSubmit={event=>{loginUser(event)}}>
-                <input 
-                    className="form-control border-0 border-bottom mb-3" 
-                    type="email"
-                    placeholder="email"
-                    required
-                    onChange={event=>{setUserEmail(event.target.value)}}
-                />
-                <input 
-                    className="form-control border-0 border-bottom mb-3" 
-                    type="password"
-                    placeholder="password"
-                    onChange={event=>{setUserPassword(event.target.value)}}
-                    required
-                />
-                <div className='text-center mt-5'>
+        <div>
+            <div>
+                <form  className='p-3' onSubmit={e=>{handleLogin(e)}}>
+                
+                    <h3 className='mb-5 text-center pb-2 border-bottom'>LOGIN IN</h3>
+                    <div className="form-group px-3">
+                        <div className=' mb-3'>
+                            <label className='form-label'>email:</label>
+                            <input 
+                                type="text" 
+                                className='form-control' 
+                                placeholder='eg. exmaple@gmail.com' 
+                                onChange={(e)=>{setEmail(e.target.value)}}
+                                required
+                            />
+                        </div>
+                        <div className=' mb-5'>
+                            <label className='form-label'>password:</label>
+                            <input 
+                                type="password" 
+                                className='form-control' 
+                                placeholder='password' 
+                                onChange={(e)=>{setPassword(e.target.value)}}
+                                required
+                            />
+                        </div>
 
-                    <button className="btn btn-warning" type="submit">login</button> 
-                </div>
-
-            </form>
+                        <div className=' mb-3 text-center'>
+                            <button 
+                                className='btn btn-outline-warning w-50' 
+                                type="submit"
+                            >
+                                login
+                            </button>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
         </div>
-        
     )
 }
 

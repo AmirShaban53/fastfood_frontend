@@ -1,34 +1,67 @@
 import React, { useState } from 'react';
 import Login from '../components/Login';
 import Register from '../components/Register';
-import FormButtons from '../components/FormButtons';
 
-const Auth = ({handleAuthKey}) => {
-    const bgImage = {backgroundImage: 'url("/images/img2.jpg")'}
+const Auth = () =>{
+    const bgImg = {backgroundImage: "url('/images/img3.jpg')"};
     const [login, setLogin] = useState(true);
-
-    const handleFormChange = (login) => {setLogin(login)}
-    
+    const handleBtnAuth = () => {
+        setLogin(prev=> !prev);
+    }
     return (
-        <div className="auth-bg " style={bgImage}>
-            <div className="container h-100">
-                <div className="row h-100 position-relative">
-                    <div className="col-md-4 h-75 position-absolute top-50 start-50 translate-middle">
-                        <div className="bg-white w-100 h-100 rounded shadow">
-                            <FormButtons handleFormChange={handleFormChange}/>
-                            <div className="form-box">
-                                
-                                {login && <Login handleAuthKey={handleAuthKey}/>}
-                                {!login && <Register/>}
-                            </div>
-                            
-                            
-                            
+        <div className='container'>
+            <div className="form mt-5 mx-md-2 mx-lg-5">
+                <div className="row mx-3 mx-md-2 mx-lg-5 shadow-lg rounded">
+                    <div className="col-md-5 d-none d-md-block form-img" style={bgImg}>
+                        <div className ='h-100 p-3 text-center text-white'>
+                            {login && 
+                                <div>
+                                    <div>
+                                        new here!
+                                    </div>
+                                    <div>
+                                        <button 
+                                            className='btn btn-outline-light w-50 rounded-pill'
+                                            onClick={()=>{handleBtnAuth()}}
+                                            >
+                                            SIGN UP
+                                        </button>
+                                    </div>
+                                    
+                                </div>
+                            }
+
+                            {!login && 
+                                <div>
+                                    <div>
+                                        welcome back!
+                                    </div>
+                                    <div>
+                                        <button 
+                                            className='btn btn-outline-light w-50 rounded-pill'
+                                            onClick={()=>{handleBtnAuth()}}
+                                        >
+                                            LOGIN 
+                                        </button>
+                                    </div>
+                                </div>
+                            }
 
                         </div>
-                    </div> 
+                    </div>
+                    <div className="col-12 col-md-7" >
+                        {!login && <Register/>}
+                        {login && <Login/>}
+                        <div className='d-block d-md-none'>
+                            <button 
+                                className='btn btn-outline-dark w-50 rounded-pill'
+                                onClick={()=>{handleBtnAuth()}}
+                            >
+                                LOGIN 
+                            </button>
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </div>
     )

@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
-import Foods from '../components/Foods';
-import FoodSearch from '../components/FoodSearch';
+import React from 'react';
+import MenuList from '../components/MenuList';
+import SearchBar from '../components/SearchBar';
 
-const Menu = ({foodList, postOrder}) => {
-    const [searchTerm, setSearchTerm] = useState("");
-
-    const handleSearch = (event) => {
-        setSearchTerm(event.target.value);
-    }
+const Menu = () => {
     return (
-        <div className="container-fluid">
-            <div className="container pt-5 position-relative">
-            this is the menu page
-                <FoodSearch handleSearch={handleSearch}/>
-                <Foods foodList={foodList} postOrder={postOrder} searchTerm={searchTerm}/>
+        <div>
+            <div className="container">
+                <SearchBar/>
+                <MenuList/>
+
             </div>
         </div>
     )

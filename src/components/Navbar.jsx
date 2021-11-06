@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Navbar = () => {
     return (
-        <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-            <div className="container   ">
-                <Link to="/" className="navbar-brand">SALSA.</Link>
+        <nav className='navbar navbar-expand-md navbar-dark bg-dark'>
+            <div className="container ">
+                <Link to='/' className="navbar-brand fs-3 fw-bolder">SALSA</Link>
                 <label
                     type='button'
                     className='navbar-toggler'
@@ -17,16 +16,13 @@ const Navbar = () => {
                     aria-expanded='false'
                     aria-label='navigation bar'
                 >
-                    <span className="navbar-toggler-icon"></span>
+                    <FontAwesomeIcon icon='bars'/>
                 </label>
                 <div className="collapse navbar-collapse" id="mobileMenu">
                     <ul className="navbar-nav ms-auto text-center">
-                        <li className="nav-item"><Link to="/" className="nav-link">home</Link></li>
-                        <li className="nav-item"><Link to="/menu" className="nav-link">menu</Link></li>
-                        <li className="nav-item"><Link to="/orders" className="nav-link">orders</Link></li>
-                        <li className="nav-item"><Link to="/admin" className="nav-link">admin</Link></li>
-                        <li className="nav-item"><Link to="/about" className="nav-link">about</Link></li>
-                        <li className="nav-item"><Link to="/auth" className="nav-link">login</Link></li>
+                        <li className='nav-item'> <Link className='nav-link' to="/">menu</Link> </li>
+                        <li className='nav-item'> <Link className='nav-link' to="/user">user</Link> </li>
+                        <li className='nav-item'> <Link className='btn btn-outline-light' to="/auth">login</Link> </li>
                     </ul>
                 </div>
             </div>
@@ -36,6 +32,3 @@ const Navbar = () => {
 }
 
 export default Navbar;
-
-
-

@@ -1,0 +1,14 @@
+.user-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.css-serial {
+    counter-reset: serial-number;
+}
+.css-serial td:first-child::before{
+    counter-increment: serial-number;
+    content: counter(serial-number);
+}

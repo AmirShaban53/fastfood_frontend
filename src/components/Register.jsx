@@ -1,77 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router';
+import React,{ useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 const Register = () => {
+    const[email, setEmail] = useState('');
+    const[password, setPassword] = useState('');
 
-    const [newEmail, setNewEmail] = useState("");
-    const [newPassword, setNewPassword] = useState("");
-    const [confrimPassword, setConfrimPassword] = useState("");
-    const history = useHistory();
+    const history =useHistory();
 
-    const registerUser = async(event) => {
+    const handleSignUp = async(event) => {
         try {
             event.preventDefault();
-            if(newPassword === confrimPassword){
-                const user = {email: newEmail, password: newPassword};
-                const res = await axios.post('/auth/signup', user);
-                console.log(res.data);
-                history.push('/');
-            }
-            else{
-                console.error("the password is not the same");
-            }
+            const newUserData = {email: email, password: password};
+            const result =await axios.post('/auth/signup', newUserData);
+            console.log(result.data);
+            return history.push('/');
         } 
         catch (error) {
-            console.log("login failed", error);
+            console.log('auth failed', error);
         }
-        
     }
-
-    useEffect(() => {
-        if(newPassword === confrimPassword)
-        {
-            console.log("the password is the same");
-        }
-        else{
-            console.log("the password is not the same");
-        }
-    }, [newPassword, confrimPassword]);
-
     return (
-        <div className="form-box px-2">
-            <form onSubmit={event=>{registerUser(event)}}>
-                <input 
-                    className="form-control border-0 border-bottom mb-3" 
-                    placeholder="email"
-                    type="email"
-                    required
-                    onChange={event=>{setNewEmail(event.target.value)}}
-                />
-                <input 
-                    className="form-control border-0 border-bottom mb-3" 
-                    placeholder="password"
-                    type="password"
-                    required
-                    onChange={event=>{setNewPassword(event.target.value)}}
-                />
-                <input 
-                    className="form-control border-0 border-bottom mb-3" 
-                    placeholder="confrim password"
-                    type="password"
-                    required
-                    onChange={event=>{setConfrimPassword(event.target.value)}}
-                />
-                <div>
-                    <input type="checkbox" className='me-3' name="" id="" />
-                    <span className='text-muted'>i agree to the terms and conditions</span>
-                </div>
-                <div className='text-center mt-5'>
-                    <button className="btn btn-warning" type="submit">register</button> 
-                </div>
-            </form>
+        <div>
+            <div>
+                <form  className='p-3' onSubmit={(e)=>{handleSignUp(e)}}>
+                
+                    <h3 className='mb-3 text-center pb-2 border-bottom'>SIGN UP</h3>
+                    <div className="form-group ">
+                        <div className=' mb-3'>
+                            <label className='form-label'>email:</label>
+                            <input 
+                                type="text" 
+                                className='form-control' 
+                                placeholder='eg. exmaple@gmail.com' 
+                                onChange={(e)=>{setEmail(e.target.value)}}
+                                required
+                            />
+                        </div>
+                        <div className=' mb-5'>
+                            <label className='form-label'>password:</label>
+                            <input 
+                                type="text" 
+                                className='form-control' 
+                                placeholder='password' 
+                                onChange={(e)=>{setPassword(e.target.value)}}
+                                required
+                            />
+                        </div>
+
+                        <div className='text-center'>
+                            <button className='btn btn-outline-warning w-50' type="submit">sign Up</button>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
         </div>
-        
     )
 }
 

@@ -1,13 +1,7 @@
-@import url('./hero.css');
-@import url('./FoodCard.css');
+@import url('./Menu.css');
 @import url('./Auth.css');
-@import url('./Food.css');
-
+@import url('./User.css');
 
 .d{
-    border: 2px solid red;
-}
-
-*{
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border: 1px solid red !important;
 }
