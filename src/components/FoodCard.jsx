@@ -2,14 +2,14 @@ import React, {useContext} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FoodContext } from '../App';
 
-const FoodCard = ({name, price, image}) => {
+const FoodCard = ({name, price, image_URL}) => {
     const {handleAddOrder} = useContext(FoodContext);
 
     return (
-        <div className='col-sm-6 col-md-4'>
+        <div className='col-sm-6 col-md-4 mb-3'>
             <div className='card'>
                 <div className=' food-card-img'>
-                    <img className='card-img-top' src={`${image}`} alt="food" />
+                    <img className='card-img-top' src={`${image_URL}`} alt="food" />
 
                 </div>
                 <div className="card-body">

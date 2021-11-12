@@ -12,7 +12,6 @@ const UserOrderTable = () => {
                     <tr>
                         <th className='col-1'>No.</th>
                         <th>name</th>
-                        <th>qty</th>
                         <th>price</th>
                     </tr>
                 </thead>
@@ -23,14 +22,13 @@ const UserOrderTable = () => {
                             <tr key={order.id}>
                                 <td></td>
                                 <td>{order.name}</td>
-                                <td>{order.quantity}</td>
                                 <td>{order.price}</td>
                             </tr>
                         )
                     })}
                     <tr>
                         <th></th>
-                        <th colSpan='2'>total</th>
+                        <th colSpan='1'>total</th>
                         <th>UGX: {total}</th>
                     </tr>
                 </tbody>

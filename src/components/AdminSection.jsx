@@ -20,8 +20,12 @@ const AdminSection = () => {
                         <FoodForm/>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row mt-5">
                     <div className="col">
+                        <div>
+                            <h2 className='border-bottom '>LIST OF ORDERS</h2>
+                            
+                        </div>
                         <OrderTable/>
                     </div>
                 </div>
