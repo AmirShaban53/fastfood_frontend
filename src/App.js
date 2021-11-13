@@ -160,7 +160,7 @@ function App() {
         <Navbar/>
         <Switch>
           <FoodContext.Provider value={ContextValue}>
-            <Route path='/' exact component={Menu}/>
+            <Route path='' exact component={Menu}/>
             <Route path='/user' exact component={User}/>
             <Route path='/auth' exact component={Auth}/>
           </FoodContext.Provider>
