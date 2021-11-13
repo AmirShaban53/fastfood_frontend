@@ -6,7 +6,7 @@ const MenuList = () => {
     const {foodList, searchTerm} = useContext(FoodContext);
     const foodElement = foodList
     .filter(food=>{
-        if(searchTerm == ''){
+        if(searchTerm === ''){
             return food;
         }
         else if(food.name.toLowerCase().includes(searchTerm.toLowerCase())){

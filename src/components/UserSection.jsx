@@ -1,5 +1,4 @@
 import React from 'react';
-import OrderTable from './OrderTable';
 import UserOrderTable from './UserOrderTable';
 
 const UserSection = () => {
