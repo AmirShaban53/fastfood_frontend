@@ -155,18 +155,18 @@ function App() {
   }
 
   return (
-    <div className="container-fluid p-0">
       <Router>
-        <Navbar/>
           <FoodContext.Provider value={ContextValue}>
-            <Switch>
-                <Route path='/' exact render={props=><Menu/>}/>
-                <Route path='/user' exact render={props=><User/>}/>
-                <Route path='/auth' exact render={props=><Auth/>}/>
-            </Switch>
+            <div className="container-fluid p-0">
+              <Navbar/>
+              <Switch>
+                  <Route path='/' exact render={props=><Menu/>}/>
+                  <Route path='/user' exact render={props=><User/>}/>
+                  <Route path='/auth' exact render={props=><Auth/>}/>
+              </Switch>
+            </div>
           </FoodContext.Provider>
       </Router>
-    </div>
   );
 }
 
