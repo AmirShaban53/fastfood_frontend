@@ -160,7 +160,7 @@ function App() {
             <div className="container-fluid p-0">
               <Navbar/>
               <Switch>
-                  <Route path='/' exact render={props=><Menu/>}/>
+                  <Route path='/menu' exact render={props=><Menu/>}/>
                   <Route path='/user' exact render={props=><User/>}/>
                   <Route path='/auth' exact render={props=><Auth/>}/>
               </Switch>
