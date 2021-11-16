@@ -155,20 +155,23 @@ function App() {
   }
 
   return (
-    <div className="container-fluid p-0">
-      this is not a drill!
-      <FoodContext.Provider value={ContextValue}>
-      <div><Menu/></div>
-      {/* <Navbar/>
-        <Router>
-          <Switch>
-              <Route path='/menu' exact render={props=><Menu/>}/>
-              <Route path='/user' exact render={props=><User/>}/>
-              <Route path='/auth' exact render={props=><Auth/>}/>
-          </Switch>
-        </Router>*/}
-      </FoodContext.Provider> 
+    <div>
+      <div className="container-fluid p-0">
+        this is not a drill!
+        <FoodContext.Provider value={ContextValue}>
+        <div><Menu/></div>
+        {/* <Navbar/>
+          <Router>
+            <Switch>
+                <Route path='/menu' exact render={props=><Menu/>}/>
+                <Route path='/user' exact render={props=><User/>}/>
+                <Route path='/auth' exact render={props=><Auth/>}/>
+            </Switch>
+          </Router>*/}
+        </FoodContext.Provider> 
+      </div>
     </div>
+
   );
 }
 
