@@ -158,8 +158,8 @@ function App() {
     <div className="container-fluid p-0">
       <FoodContext.Provider value={ContextValue}>
       this is not a drill!
-      {/* <Navbar/>
       <Menu/>
+      {/* <Navbar/>
         <Router>
           <Switch>
               <Route path='/menu' exact render={props=><Menu/>}/>
