@@ -4,12 +4,9 @@ import SearchBar from '../components/SearchBar';
 
 const Menu = () => {
     return (
-        <div>
-            <div className="container">
-                <SearchBar/>
-                <MenuList/>
-
-            </div>
+        <div className="container">
+            <SearchBar/>
+            <MenuList/>
         </div>
     )
 }

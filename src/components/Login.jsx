@@ -21,7 +21,7 @@ const Login = () => {
                 setToken(auth.data.token);
                 const userData = jwt.verify(auth.data.token, process.env.REACT_APP_JWT_KEY);
                 setUser(userData);
-                return history.push('/menu');
+                return history.push('/');
             }
         } 
         catch (error) {
