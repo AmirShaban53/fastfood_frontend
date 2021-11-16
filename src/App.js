@@ -156,18 +156,18 @@ function App() {
 
   return (
     <div className="container-fluid p-0">
+      <FoodContext.Provider value={ContextValue}>
       this is not a drill!
       {/* <Navbar/>
       <Menu/>
-      <FoodContext.Provider value={ContextValue}>
         <Router>
           <Switch>
               <Route path='/menu' exact render={props=><Menu/>}/>
               <Route path='/user' exact render={props=><User/>}/>
               <Route path='/auth' exact render={props=><Auth/>}/>
           </Switch>
-        </Router>
-      </FoodContext.Provider> */}
+        </Router>*/}
+      </FoodContext.Provider> 
     </div>
   );
 }
