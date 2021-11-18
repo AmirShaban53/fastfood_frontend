@@ -158,7 +158,7 @@ function App() {
       <div className="container-fluid p-0">
         this is not a drill!
         <FoodContext.Provider value={ContextValue}>
-        <Auth/>
+        <Menu/>
         {/* <Navbar/>
           <Router>
             <Switch>
