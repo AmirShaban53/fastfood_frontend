@@ -8,15 +8,7 @@ const MenuList = () => {
     return (
         <div className='row'>
             {foodList && 
-                foodList.filter(food=>{
-                    if(searchTerm === ''){
-                        return food;
-                    }
-                    else if(food.name.toLowerCase().includes(searchTerm.toLowerCase())){
-                        return food;
-                    }
-                })
-                .map(food=>{
+                foodList.map(food=>{
                     return <FoodCard key={food.id} {...food}/>
                 })
             }
