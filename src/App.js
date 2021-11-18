@@ -116,13 +116,11 @@ function App() {
   }
 
   useEffect(() => {
+    getFoodList();
     const tokenJSON = localStorage.getItem(FASTFOOD_LOCAL);
     if(tokenJSON !== null || typeof token !== 'undefined'){
       setToken(JSON.parse(tokenJSON));
     } 
-  }, [])
-  useEffect(() => {
-    getFoodList();
   }, [])
   useEffect(() => {
     localStorage.setItem(FASTFOOD_LOCAL, JSON.stringify(token));
@@ -160,7 +158,7 @@ function App() {
           <Router>
             <Navbar/>
             <Switch>
-                {/* <Route path='/menu' exact render={props=><Menu/>}/> */}
+                <Route path='/' exact render={props=><Menu/>}/>
                 <Route path='/user' exact render={props=><User/>}/>
                 <Route path='/auth' exact render={props=><Auth/>}/>
             </Switch>
