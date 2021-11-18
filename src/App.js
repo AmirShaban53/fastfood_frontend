@@ -159,6 +159,7 @@ function App() {
         this is not a drill!
         <FoodContext.Provider value={ContextValue}>
         <Menu/>
+        <User/>
         {/* <Navbar/>
           <Router>
             <Switch>
