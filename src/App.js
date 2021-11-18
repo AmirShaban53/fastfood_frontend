@@ -120,7 +120,6 @@ function App() {
     if(tokenJSON !== null || typeof token !== 'undefined'){
       setToken(JSON.parse(tokenJSON));
     } 
-    
   }, [])
   useEffect(() => {
     getFoodList();
@@ -159,7 +158,7 @@ function App() {
       <div className="container-fluid p-0">
         this is not a drill!
         <FoodContext.Provider value={ContextValue}>
-        <div className = 'container'>this and that</div>
+        <User/>
         {/* <Navbar/>
           <Router>
             <Switch>
