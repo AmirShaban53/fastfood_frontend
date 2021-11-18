@@ -6,7 +6,7 @@ const Menu = ({list}) => {
     return (
         <div className="container">
             <SearchBar/>
-            {/* <MenuList/> */}
+            <MenuList/>
         </div>
     )
 }
