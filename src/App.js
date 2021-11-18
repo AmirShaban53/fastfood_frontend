@@ -158,7 +158,7 @@ function App() {
           <Router>
             <Navbar/>
             <Switch>
-                <Route path='/' exact render={props=><Menu/>}/>
+                <Route path='/' exact render={props=><Menu list={foodList}/>}/>
                 <Route path='/user' exact render={props=><User/>}/>
                 <Route path='/auth' exact render={props=><Auth/>}/>
             </Switch>
