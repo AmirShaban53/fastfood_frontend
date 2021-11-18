@@ -18,7 +18,11 @@ const MenuList = () => {
     })
     return (
         <div className='row'>
-            {foodElement}
+            {
+                foodList.map(food=>{
+                    return <FoodCard key={food.id} {...food}/>
+                })
+            }
         </div>
     )
 }
