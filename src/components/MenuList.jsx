@@ -4,15 +4,15 @@ import FoodCard from './FoodCard';
 
 const MenuList = () => {
     const {foodList, searchTerm} = useContext(FoodContext);
-    const foodElement = foodList
-    .filter(food=>{
-        if(searchTerm === ''){
-            return food;
-        }
-        else if(food.name.toLowerCase().includes(searchTerm.toLowerCase())){
-            return food;
-        }
-    })
+    // const foodElement = foodList
+    // .filter(food=>{
+    //     if(searchTerm === ''){
+    //         return food;
+    //     }
+    //     else if(food.name.toLowerCase().includes(searchTerm.toLowerCase())){
+    //         return food;
+    //     }
+    // })
     return (
         <div className='row'>
             {/* {
