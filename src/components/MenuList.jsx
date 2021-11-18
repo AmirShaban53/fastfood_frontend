@@ -7,12 +7,24 @@ const MenuList = () => {
     
     return (
         <div className='row'>
-            {foodList && 
-                foodList.map(food=>{
-                    return <FoodCard key={food.id} {...food}/>
+            {foodList.length >= 1 ?
+                // <p>hen there is stuff</p>
+                foodList.filter(food=>{
+                    if(searchTerm == ""){
+                        return food;
+                    }
+                    else if(food.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                        return food;
+                    }
                 })
+                .map(food=>{
+                    return <FoodCard key={food.id} {...food}/>
+                    // return <h1>yoo</h1>
+                })
+                 : 
+                <p> there is no stuff yet</p>
+
             }
-            hello love!
         </div>
     )
 }
