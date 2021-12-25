@@ -9,7 +9,7 @@ import AdminSection from '../components/AdminSection';
 const User = () => {
     const { user } = useContext(FoodContext);
     return (
-        <div className='container'>
+        <div className='container pt-5'>
             <UserDetails email='exmaple@gmail.com' role='USER'/>
             {user.role === 'user' && <UserSection/>}
             {user.role === 'admin' && <AdminSection/>}

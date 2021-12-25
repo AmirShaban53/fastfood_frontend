@@ -1,7 +1,20 @@
 @import url('./Menu.css');
 @import url('./Auth.css');
 @import url('./User.css');
+@import url('./Home.css');
 
 .d{
   border: 1px solid red !important;
+}
+
+.navbar{
+  width: 100% !important;
+  position: fixed !important;
+  top: 0 !important;
+  z-index: 1 !important;
+  transition: ease 0.5s;
+}
+
+.navbar_dark{
+
 }

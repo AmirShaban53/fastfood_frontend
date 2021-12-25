@@ -14,6 +14,7 @@ import jwt from 'jsonwebtoken';
 import Navbar from './components/Navbar';
 
 //pages
+import Home from './pages/Home';
 import Menu from './pages/Menu';
 import Auth from './pages/Auth';
 import User from './pages/User';
@@ -39,7 +40,7 @@ function App() {
       if(foodlist.data) setFoodList(foodlist.data);
     } 
     catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   }
   const getOrderList = async() =>{
@@ -49,7 +50,7 @@ function App() {
       if(orderlist.data) setOrderList(orderlist.data);
     } 
     catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   }
   const getUserOrders = async() => {
@@ -59,7 +60,7 @@ function App() {
       if(userorders.data) setUserOrders(userorders.data);
     } 
     catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   }
   const getUserData = async() => {
@@ -91,7 +92,7 @@ function App() {
       getOrderList();
     } 
     catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   }
   const handleDeleteFood = async(id) => {
@@ -111,7 +112,16 @@ function App() {
       getOrderList();
     } 
     catch (error) {
-      console.log(error);
+      console.log(error.message);
+    }
+  }
+  const handleUserLogout = async() => {
+    try {
+      await localStorage.setItem(FASTFOOD_LOCAL, '');
+      setToken('');
+      window.location.reload(false);
+    } catch (error) {
+      console.log(error.message);
     }
   }
 
@@ -142,6 +152,7 @@ function App() {
     user,
     handleConfrimOrder,
     handleDeleteFood,
+    handleUserLogout,
     handleEditOrder,
     handleAddOrder,
     handleEditFood,
@@ -158,7 +169,8 @@ function App() {
           <Router>
             <Navbar/>
             <Switch>
-                <Route path='/' exact render={props=><Menu/>}/>
+                <Route path='/' exact render={props=><Home/>}/>
+                <Route path='/menu' exact render={props=><Menu list = {foodList}/>}/>
                 <Route path='/user' exact render={props=><User/>}/>
                 <Route path='/auth' exact render={props=><Auth/>}/>
             </Switch>

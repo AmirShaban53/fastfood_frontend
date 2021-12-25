@@ -9,7 +9,7 @@ const Auth = () =>{
         setLogin(prev=> !prev);
     }
     return (
-        <div className='container'>
+        <div className='container pt-5'>
             <div className="form mt-5 mx-md-2 mx-lg-5">
                 <div className="row mx-3 mx-md-2 mx-lg-5 shadow-lg rounded">
                     <div className="col-md-5 d-none d-md-block form-img" style={bgImg}>

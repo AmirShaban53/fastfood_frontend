@@ -2,9 +2,9 @@ import React from 'react';
 import MenuList from '../components/MenuList';
 import SearchBar from '../components/SearchBar';
 
-const Menu = () => {
+const Menu = ({list}) => {
     return (
-        <div className="container">
+        <div className="container pt-5">
             <SearchBar/>
             <MenuList/>
         </div>
