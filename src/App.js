@@ -23,7 +23,7 @@ import User from './pages/User';
 library.add(fas);
 export const FoodContext = React.createContext();
 const FASTFOOD_LOCAL = 'react_fastfood_local_key';
-
+const API = process.env.REACT_APP_API;
 function App() {
   const[user, setUser] = useState('');
   const[token, setToken] = useState('');
@@ -37,7 +37,7 @@ function App() {
 
   const getFoodList = async() => {
     try {
-      const foodlist = await axios.get('/menu');
+      const foodlist = await axios.get(`${API}/menu`);
       if(foodlist.data) setFoodList(foodlist.data);
     } 
     catch (error) {
@@ -47,7 +47,7 @@ function App() {
   const getOrderList = async() =>{
     try {
       const headers = {'authorization': `bearer ${token}`}
-      const orderlist = await axios.get('/orders', {headers: headers})
+      const orderlist = await axios.get(`${API}/orders`, {headers: headers})
       if(orderlist.data) setOrderList(orderlist.data);
     } 
     catch (error) {
@@ -57,7 +57,7 @@ function App() {
   const getUserOrders = async() => {
     try {
       const headers = {'authorization': `bearer ${token}`}
-      const userorders = await axios.get('/users/orders', {headers: headers})
+      const userorders = await axios.get(`${API}/users/orders`, {headers: headers})
       if(userorders.data) setUserOrders(userorders.data);
     } 
     catch (error) {
@@ -89,7 +89,7 @@ function App() {
   const handleAddOrder = async(food) => {
     try {
       const headers = {'authorization': `bearer ${token}`}
-      await axios.post('/users/orders', {name: food}, {headers: headers});
+      await axios.post(`${API}/users/orders`, {name: food}, {headers: headers});
       getOrderList();
     } 
     catch (error) {
@@ -99,7 +99,7 @@ function App() {
   const handleDeleteFood = async(id) => {
     try {
       const headers = {'authorization': `bearer ${token}`}
-      await axios.delete(`/menu/${id}`, {headers: headers});
+      await axios.delete(`${API}/menu/${id}`, {headers: headers});
       getFoodList();
     }
     catch (error) {
@@ -109,7 +109,7 @@ function App() {
   const handleConfrimOrder = async(id) => {
     try {
       const headers = {'authorization': `bearer ${token}`}
-      await axios.patch(`/orders/${id}`,{status: true}, {headers: headers});
+      await axios.patch(`${API}/orders/${id}`,{status: true}, {headers: headers});
       getOrderList();
     } 
     catch (error) {

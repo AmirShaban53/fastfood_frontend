@@ -15,7 +15,7 @@ const Login = () => {
         try {
             event.preventDefault();
             const userLoginData = {email: email, password: password};
-            const auth = await axios.post('/auth/login', userLoginData);
+            const auth = await axios.post(`${process.env.REACT_APP_API}/auth/login`, userLoginData);
 
             if(auth.data){
                 setToken(auth.data.token);

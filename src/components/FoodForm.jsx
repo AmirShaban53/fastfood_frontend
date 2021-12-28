@@ -22,7 +22,7 @@ const FoodForm = () => {
             'Content-Type': 'multipart/form-data'
         }
         try {
-            await axios.post('/menu', formData, {headers: headers});
+            await axios.post(`${process.env.REACT_APP_API}/menu`, formData, {headers: headers});
             getFoodList();
         }
         catch (error) {

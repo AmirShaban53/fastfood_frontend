@@ -12,7 +12,7 @@ const Register = () => {
         try {
             event.preventDefault();
             const newUserData = {email: email, password: password};
-            const result =await axios.post('/auth/signup', newUserData);
+            const result =await axios.post(`${process.env.REACT_APP_API}/auth/signup`, newUserData);
             console.log(result.data);
             return history.push('/');
         } 
