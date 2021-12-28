@@ -12,14 +12,14 @@ const MenuList = () => {
             {foodList.length > 0 ?
                 // eslint-disable-next-line
                 foodList
-                // .filter(food=>{
-                //     if(searchTerm === ""){
-                //         return food;
-                //     }
-                //     else if(food.name.toLowerCase().includes(searchTerm.toLowerCase())){
-                //         return food;
-                //     }
-                // })
+                .filter(food=>{
+                    if(searchTerm === ""){
+                        return food;
+                    }
+                    else if(food.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                        return food;
+                    }
+                })
                 .map(food=>{
                     return <FoodCard key={food.id} {...food}/>
                 })
