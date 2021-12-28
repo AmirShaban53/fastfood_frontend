@@ -23,7 +23,7 @@ const MenuList = () => {
                 .map(food=>{
                     return <FoodCard key={food.id} {...food}/>
                 })
-                 : ''
+                 : <p>meals loading...</p>
                 }
         </div>
     )
