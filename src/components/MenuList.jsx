@@ -9,16 +9,17 @@ const MenuList = () => {
     console.log(foodList);
     return (
         <div className='row'>
-            {foodList.length >= 1 ?
+            {foodList.length > 0 ?
                 // eslint-disable-next-line
-                foodList.filter(food=>{
-                    if(searchTerm === ""){
-                        return food;
-                    }
-                    else if(food.name.toLowerCase().includes(searchTerm.toLowerCase())){
-                        return food;
-                    }
-                })
+                foodList
+                // .filter(food=>{
+                //     if(searchTerm === ""){
+                //         return food;
+                //     }
+                //     else if(food.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                //         return food;
+                //     }
+                // })
                 .map(food=>{
                     return <FoodCard key={food.id} {...food}/>
                 })
