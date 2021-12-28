@@ -6,10 +6,13 @@ import SearchBar from '../components/SearchBar';
 
 const Menu = () => {
     return (
-        <div className="container pt-5">
-            <SearchBar/>
-            <MenuList/>
-        </div>
+        <>
+            stuff here
+            <div className="container pt-5">
+                <SearchBar/>
+                <MenuList/>
+            </div>
+        </>
     )
 }
 
