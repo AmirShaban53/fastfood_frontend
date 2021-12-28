@@ -10,7 +10,6 @@ const Navbar = () => {
     const[darkNav, setDarkNav] = useState(false);
     const[PageURL, setPageURL] = useState('/');
     useEffect(()=>{
-        console.log(PageURL)
             if(PageURL !== '/')setDarkNav(true);
             window.addEventListener('scroll',()=>{
                 if(PageURL==='/' && window.scrollY <= 100){setDarkNav(false)}
