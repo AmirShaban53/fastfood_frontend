@@ -16,7 +16,7 @@ const FoodCard = ({name, price, image_URL}) => {
                     <div className="row">
                         <div className="col-7">
                         <p className='fw-light fs-4 mb-0'>{name}</p>
-                        <p className='fw-bolder fs-3'>USD: {price}</p>
+                        <p className='fw-bolder fs-3'>UGX: {price}</p>
                         </div>
                         <div 
                             className="col-5 text-end p-2 add-btn"
