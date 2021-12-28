@@ -5,24 +5,26 @@ import { FoodContext } from '../App';
 
 const Navbar = () => {
 
-    const {handleUserLogout} = useContext(FoodContext);
+    const {handleUserLogout, token} = useContext(FoodContext);
     const location = useLocation();
     const[darkNav, setDarkNav] = useState(false);
     const[PageURL, setPageURL] = useState('/');
     useEffect(()=>{
-        if(PageURL==='/'){
+        console.log(PageURL)
+            if(PageURL !== '/')setDarkNav(true);
             window.addEventListener('scroll',()=>{
-                if(window.scrollY <= 100){setDarkNav(false)}
-                else setDarkNav(true);
-            })}
-        else{setDarkNav(true)}
-        return () => {window.removeEventListener('scroll',()=>{console.log('done')})}
+                if(PageURL==='/' && window.scrollY <= 100){setDarkNav(false)}
+                else {setDarkNav(true)};
+            })
+        return () => {
+            window.removeEventListener('scroll',()=>{console.log('listener removed!')})
+        }
     },[PageURL])
 
     useEffect(()=>{
         setPageURL(location.pathname);
-        console.log(PageURL);
         if(location.pathname==='/')setDarkNav(false);
+        // eslint-disable-next-line
     },[location.pathname])
 
     return (
@@ -44,8 +46,8 @@ const Navbar = () => {
                     <ul className="navbar-nav ms-auto text-center px-3">
                         <li className='nav-item'> <Link to="/menu" className='nav-link mx-3' >menu</Link> </li>
                         <li className='nav-item'> <Link to="/user" className='nav-link mx-3' >user</Link> </li>
-                        <li className='nav-item'> <Link to="/auth" className='btn btn-outline-light mx-3' >login</Link> </li>
-                        <li className='nav-item'> <Link to="/" onClick={()=>{handleUserLogout()}} className='btn btn-outline-light mx-3' >logout</Link> </li>
+                        {token === '' && <li className='nav-item'> <Link to="/auth" className='btn btn-outline-light mx-3' >login</Link> </li>}
+                        {(token !== '' ) &&<li className='nav-item'> <Link to="/" onClick={()=>{handleUserLogout()}} className='btn btn-outline-light mx-3' >logout</Link> </li>}
                     </ul>
                 </div>
             </div>

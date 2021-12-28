@@ -10,7 +10,7 @@ const Auth = () =>{
     }
     return (
         <div className='container pt-5'>
-            <div className="form mt-5 mx-md-2 mx-lg-5">
+            <div className="form mt-5 mx-md-2 mb-5 mx-lg-5">
                 <div className="row mx-3 mx-md-2 mx-lg-5 shadow-lg rounded">
                     <div className="col-md-5 d-none d-md-block form-img" style={bgImg}>
                         <div className ='h-100 p-3 text-center text-white'>
@@ -52,12 +52,12 @@ const Auth = () =>{
                     <div className="col-12 col-md-7" >
                         {!login && <Register/>}
                         {login && <Login/>}
-                        <div className='d-block d-md-none'>
+                        <div className='d-block text-center mt-5 mb-3 d-md-none'>
                             <button 
                                 className='btn btn-outline-dark w-50 rounded-pill'
                                 onClick={()=>{handleBtnAuth()}}
                             >
-                                LOGIN 
+                                {login ? 'SIGN UP' : 'LOGIN' }
                             </button>
                         </div>
                     </div>

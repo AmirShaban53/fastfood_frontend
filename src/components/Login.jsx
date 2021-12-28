@@ -34,7 +34,7 @@ const Login = () => {
             <div>
                 <form  className='p-3' onSubmit={e=>{handleLogin(e)}}>
                 
-                    <h3 className='mb-5 text-center pb-2 border-bottom'>LOGIN IN</h3>
+                    <h3 className='mb-5 text-center pb-2 border-bottom'>LOGIN </h3>
                     <div className="form-group px-3">
                         <div className=' mb-3'>
                             <label className='form-label'>email:</label>

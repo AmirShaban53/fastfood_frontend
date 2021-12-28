@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { FoodContext } from '../App';
 import FoodCard from './FoodCard';
 
+
 const MenuList = () => {
     const {foodList, searchTerm} = useContext(FoodContext);
     
@@ -9,7 +10,7 @@ const MenuList = () => {
     return (
         <div className='row'>
             {foodList.length >= 1 ?
-                // <p>hen there is stuff</p>
+                // eslint-disable-next-line
                 foodList.filter(food=>{
                     if(searchTerm === ""){
                         return food;
@@ -21,10 +22,8 @@ const MenuList = () => {
                 .map(food=>{
                     return <FoodCard key={food.id} {...food}/>
                 })
-                 : 
-                <p> there is no stuff yet</p>
-
-            }
+                 : ''
+                }
         </div>
     )
 }

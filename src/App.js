@@ -7,11 +7,12 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import axios from 'axios';
 import jwt from 'jsonwebtoken';
+import axios from 'axios';
 
 //components
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 //pages
 import Home from './pages/Home';
@@ -131,6 +132,7 @@ function App() {
     if(tokenJSON !== null || typeof token !== 'undefined'){
       setToken(JSON.parse(tokenJSON));
     } 
+    // eslint-disable-next-line
   }, [])
   useEffect(() => {
     localStorage.setItem(FASTFOOD_LOCAL, JSON.stringify(token));
@@ -139,6 +141,7 @@ function App() {
       getOrderList();
       getUserData();
     }
+    // eslint-disable-next-line
   }, [token])
 
   const ContextValue = {
@@ -174,6 +177,7 @@ function App() {
                 <Route path='/user' exact render={props=><User/>}/>
                 <Route path='/auth' exact render={props=><Auth/>}/>
             </Switch>
+            <Footer/>
           </Router>
         </FoodContext.Provider> 
       </div>
