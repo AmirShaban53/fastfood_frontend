@@ -30,7 +30,7 @@ const Home = () => {
                     <div className="overlay text-center text-white p-5">
                         <div className="content ">
                             <h2 className='display-1 fw-bolder'>ALL <span className='text-warning'>SET!</span></h2>
-                            <p className='fst-italic fs-4'>login in and make an order</p>
+                            <p className='fst-italic fs-4'>login and make an order</p>
                             <Link to='/auth' className='btn btn-outline-warning rounded-pill w-50 fs-3' >login</Link>
                         </div>
                     </div>
